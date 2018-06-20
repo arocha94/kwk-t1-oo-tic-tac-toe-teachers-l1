@@ -87,6 +87,14 @@ class TicTacToe
     end
   end
   
-  
+    def position(location)
+    @board[location.to_i]
+  end
+
+  def position_taken?(location)
+    !(position(location).nil? || position(location) == " ")
+  end
+end
+
 
 
