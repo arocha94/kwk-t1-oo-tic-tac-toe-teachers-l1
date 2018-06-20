@@ -61,5 +61,32 @@ class TicTacToe
     won? || draw?
   end
   
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
+
+  def move(location, token)
+    @board[location.to_i-1] = token
+  end
+
+  def won?
+    WIN_COMBINATIONS.detect do |combo|
+      position(combo[0]) == position(combo[1]) &&
+      position(combo[1]) == position(combo[2]) &&
+      position_taken?(combo[0])
+    end
+  end
+
+  def draw?
+    !won? && @board.all?{|token| token == "X" || token == "O"}
+  end
+
+  def winner
+    if winning_combo = won?
+      @winner = position(winning_combo.first)
+    end
+  end
   
+  
+
 
