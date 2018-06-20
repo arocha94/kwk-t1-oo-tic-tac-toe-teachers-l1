@@ -42,9 +42,14 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
   end 
   
   def turn
-    display_board
     puts "Please enter 1-9:"
     input = gets.strip
+    if valid_move?(input)
+      move(input, current_player)
+    else
+      turn
+    end
+    display_board
     
   end
 
