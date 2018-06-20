@@ -16,8 +16,8 @@ class TicTacToe
       input = gets.strip
     end 
 
-    def initialize()
-     @board = Array.new(9, " ")
+    def initialize
+    @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
   
     def position(location)
