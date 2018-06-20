@@ -33,3 +33,33 @@ class TicTacToe
     puts "-----------"
     puts " #{board[6]} | #{board[7]} | #{board[8]} "
   end
+  
+    def turn
+    display_board
+    puts "Please enter 1-9:"
+    input = gets.strip
+    if !valid_move?(input)
+      turn
+    end
+    move(input, current_player)
+    display_board
+  end
+
+  def valid_move?(input)
+    input.to_i.between?(1,9) && !position_taken?(input.to_i-1)
+  end
+
+  def current_player
+    turn_count % 2 == 0 ? "X" : "O"
+  end
+
+  def full?
+    @board.all?{|token| token == "X" || token == "O"}
+  end
+
+  def over?
+    won? || draw?
+  end
+  
+  
+
