@@ -19,6 +19,8 @@ class TicTacToe
     def initialize()
      @board = Array.new(9, " ")
     end
+  
+    
     
     def move(location, token)
       @board[location.to_i-1] = token
